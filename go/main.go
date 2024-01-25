@@ -17,5 +17,5 @@ func main() {
 		"a",
 		"ab"}
 
-	fmt.Print(hashmap.GroupAnagrams(strs))
+	fmt.Print(hashmap.GroupAnagrams2(strs))
 }

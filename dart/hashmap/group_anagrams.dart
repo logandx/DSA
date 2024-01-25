@@ -37,6 +37,8 @@ class Solution2 {
   }
 }
 
+///  Solution 3 => Using List<int>.filled(26,0);
+
 void main() {
   final strs = <String>[
     "eat",

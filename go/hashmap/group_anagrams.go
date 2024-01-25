@@ -28,23 +28,26 @@ func GroupAnagrams(strs []string) [][]string {
 	return res
 }
 
-type Key [26]byte
+///------------------------------------------------------------------
 
-func strKey(str string) (key Key) {
+type EngAlphaBet [26]byte
+
+func getCharOccurrenceCount(str string) (char EngAlphaBet) {
 	for i := range str {
-		key[str[i]-'a']++
+		char[str[i]-'a']++
 	}
-	return key
+	return char
 }
-func GroupAnagrams21(strs []string) [][]string {
-	groups := make(map[Key][]string)
+func GroupAnagrams2(strs []string) [][]string {
+	hashMap := make(map[EngAlphaBet][]string)
 	for _, v := range strs {
-		key := strKey(v)
-		fmt.Println(key)
-		groups[key] = append(groups[key], v)
+		key := getCharOccurrenceCount(v)
+		hashMap[key] = append(hashMap[key], v)
 	}
-	result := make([][]string, 0, len(groups))
-	for _, v := range groups {
+	fmt.Println(hashMap)
+	fmt.Println(len(hashMap))
+	result := make([][]string, 0, len(hashMap))
+	for _, v := range hashMap {
 		result = append(result, v)
 	}
 	return result
