@@ -36,10 +36,19 @@ class SortableArray {
     array[pointer1] = array[pointer2];
     array[pointer2] = tempValue;
   }
+
+  void quicksort(int leftIndex, int rightIndex) {
+    if (rightIndex - leftIndex <= 0) {
+      return;
+    }
+    int pivotPosition = partition(leftIndex, rightIndex);
+    quicksort(leftIndex, pivotPosition - 1);
+    quicksort(pivotPosition + 1, rightIndex);
+  }
 }
 
 void main() {
   SortableArray sortableArray = SortableArray([3, 1, 4, 1, 5, 9, 2, 6, 5]);
-  sortableArray.partition(0, 8);
-  print(sortableArray.array); // Output: [2, 1, 4, 1, 3, 5, 9, 6, 5]
+  sortableArray.quicksort(0, 8);
+  print(sortableArray.array); // Output: [1, 1, 2, 3, 4, 5, 5, 6, 9]
 }
