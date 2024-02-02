@@ -45,10 +45,33 @@ class SortableArray {
     quicksort(leftIndex, pivotPosition - 1);
     quicksort(pivotPosition + 1, rightIndex);
   }
+
+  int quickSelect(
+    int kThLowestValue,
+    int leftIndex,
+    int rightIndex,
+  ) {
+    if (rightIndex - leftIndex <= 0) {
+      return array[leftIndex];
+    }
+    int pivotPosition = partition(leftIndex, rightIndex);
+    if (kThLowestValue < pivotPosition) {
+      return quickSelect(kThLowestValue, leftIndex, pivotPosition - 1);
+    } else if (kThLowestValue > pivotPosition) {
+      return quickSelect(kThLowestValue, pivotPosition + 1, rightIndex);
+    } else {
+      return array[pivotPosition];
+    }
+  }
 }
 
 void main() {
-  SortableArray sortableArray = SortableArray([3, 1, 4, 1, 5, 9, 2, 6, 5]);
+  List<int> unsortedArray = [3, 1, 4, 1, 5, 9, 2, 6, 5];
+  SortableArray sortableArray = SortableArray(unsortedArray);
   sortableArray.quicksort(0, 8);
-  print(sortableArray.array); // Output: [1, 1, 2, 3, 4, 5, 5, 6, 9]
+  print(sortableArray.array);
+  int kthLowestValue = 3; // Example: Find the 3rd lowest value
+  int result = sortableArray.quickSelect(
+      kthLowestValue - 1, 0, unsortedArray.length - 1);
+  print('The $kthLowestValue lowest value is: $result');
 }
