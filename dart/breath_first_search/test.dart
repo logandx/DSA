@@ -79,6 +79,7 @@ void main() {
   person1.addFriend(person3);
   person2.addFriend(person4);
   person3.addFriend(person4);
-
   person1.displayNetwork();
+  print('--------------');
+  person2.displayNetwork();
 }
