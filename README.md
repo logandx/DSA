@@ -7,3 +7,5 @@ algorithm can get in a worst-case scenario prepares us for the worst and may hav
 
 2/ Sorting algorithms: -> Sorting algorithms have been the subject of extensive research in computer
 science, and tens? (maybe more) of such algorithms have been developed over years. They all solve the following problem: Given an array of unsorted numbers, how can we sort them so that they end up win ascending order?
+
+O(1) < O(logN) < O(N) < O(NlogN)
