@@ -2,11 +2,12 @@ import 'dart:math';
 
 class Solution {
   int largestAltitude(List<int> gain) {
-    final prefixSum = List.generate(gain.length +1, (_)=>0);
-    print(prefixSum);
+    final prefixSum = List.generate(gain.length + 1, (_) => 0);
+
     for (var i = 1; i < gain.length + 1; i++) {
       prefixSum[i] = prefixSum[i - 1] + gain[i - 1];
     }
+    print(prefixSum);
     return prefixSum.reduce((a, b) => max(a, b));
   }
 }
