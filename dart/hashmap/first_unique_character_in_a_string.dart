@@ -25,5 +25,5 @@ class Solution {
 void main(List<String> args) {
   var s = 'dddccdbba'; // failed test case
   final obj = Solution();
-  var result = obj.firstUniqueChar(s);
+  print(obj.firstUniqueChar(s));
 }

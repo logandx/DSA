@@ -100,6 +100,7 @@ class BinarySearchTree {
         return node;
       }
     }
+    return null;
   }
 
   TreeNode? lift(TreeNode node, TreeNode nodeToDelete) {
