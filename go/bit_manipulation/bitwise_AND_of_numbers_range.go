@@ -12,12 +12,12 @@ func rangeBitwiseAnd(left int, right int) int {
 	return right << count
 }
 
-func rangeBitwiseAnd2(left int, right int ) {
+func rangeBitwiseAnd2(left int, right int) int {
 	result := left & right
 	distance := right - left + 1
 
 	for i := 0; i < 32; i++ {
-		if (result >> i) & 1 == 1 && distance > (1 << i) {
+		if (result>>i)&1 == 1 && distance > (1<<i) {
 			result = result ^ (1 << i)
 		}
 	}
