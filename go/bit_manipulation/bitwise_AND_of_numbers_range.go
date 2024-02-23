@@ -18,12 +18,13 @@ func rangeBitwiseAnd2(left int, right int) int {
 
 	for i := 0; i < 32; i++ {
 		if (result>>i)&1 == 1 && distance > (1<<i) {
+		if (result>>i)&1 == 1 && distance > (1<<i) {
 			result = result ^ (1 << i)
 		}
 	}
 	return result
 
-}
+}}
 
 func main() {
 	left := 1
