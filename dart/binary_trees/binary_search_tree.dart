@@ -1,10 +1,4 @@
-class TreeNode {
-  late int value;
-  TreeNode? leftChild;
-  TreeNode? rightChild;
-
-  TreeNode(this.value, [this.leftChild, this.rightChild]);
-}
+import 'tree_node.dart';
 
 class BinarySearchTree {
   TreeNode? root;
@@ -17,35 +11,35 @@ class BinarySearchTree {
 
   TreeNode? _searchRecursive(int value, TreeNode? node) {
     // Base case: If the node is nonexistent or we've found the value we're looking for:
-    if (node == null || node.value == value) {
+    if (node == null || node.val == value) {
       return node;
     }
     // If the value is less than the current node, perform search on the left child:
-    else if (value < node.value) {
-      return _searchRecursive(value, node.leftChild);
+    else if (value < node.val) {
+      return _searchRecursive(value, node.left);
     }
     // If the value is greater than the current node, perform search on the right child:
     else {
-      return _searchRecursive(value, node.rightChild);
+      return _searchRecursive(value, node.right);
     }
   }
 
   void insert(int value, TreeNode node) {
-    if (value < node.value) {
+    if (value < node.val) {
       // If the left child does not exist, we want to insert
       // the value as the left child:
-      if (node.leftChild == null) {
-        node.leftChild = TreeNode(value);
+      if (node.left == null) {
+        node.left = TreeNode(value);
       } else {
-        insert(value, node.leftChild!);
+        insert(value, node.left!);
       }
-    } else if (value > node.value) {
+    } else if (value > node.val) {
       // If the right child does not exist, we want to insert
       // the value as the right child:
-      if (node.rightChild == null) {
-        node.rightChild = TreeNode(value);
+      if (node.right == null) {
+        node.right = TreeNode(value);
       } else {
-        insert(value, node.rightChild!);
+        insert(value, node.right!);
       }
     }
   }
@@ -74,29 +68,29 @@ class BinarySearchTree {
       // node's value, we set the left or right child respectively to be the
       // return value of a recursive call of this very method on the current
       // node's left or right subtree.
-    } else if (valueToDelete < node.value) {
-      node.leftChild = delete(valueToDelete, node.leftChild);
+    } else if (valueToDelete < node.val) {
+      node.left = delete(valueToDelete, node.left);
       // We return the current node (and its subtree if existent) to be used as
       // the new value of its parent's left or right child:
       return node;
-    } else if (valueToDelete > node.value) {
-      node.rightChild = delete(valueToDelete, node.rightChild);
+    } else if (valueToDelete > node.val) {
+      node.right = delete(valueToDelete, node.right);
       return node;
       // If the current node is the one we want to delete:
-    } else if (valueToDelete == node.value) {
+    } else if (valueToDelete == node.val) {
       // If the current node has no left child, we delete it by returning its
       // right child (and its subtree if existent) to be its parent's new subtree:
-      if (node.leftChild == null) {
-        return node.rightChild;
+      if (node.left == null) {
+        return node.right;
         // If the current node has no left OR right child, this ends up being null
         // as per the first line of code in this function.
-      } else if (node.rightChild == null) {
-        return node.leftChild;
+      } else if (node.right == null) {
+        return node.left;
       } else {
         // If the current node has two children, we delete the current node by
         // calling the lift function (below), which changes the current node's
         // value to the value of its successor node:
-        node.rightChild = lift(node.rightChild!, node);
+        node.right = lift(node.right!, node);
         return node;
       }
     }
@@ -106,16 +100,16 @@ class BinarySearchTree {
   TreeNode? lift(TreeNode node, TreeNode nodeToDelete) {
     // If the current node of this function has a left child, we recursively call
     // this function to continue down the left subtree to func the successor node.
-    if (node.leftChild != null) {
-      node.leftChild = lift(node.leftChild!, nodeToDelete);
+    if (node.left != null) {
+      node.left = lift(node.left!, nodeToDelete);
       return node;
 
       // If the current node has no left child, that means the current node of this
       // function is the successor node, and we take its value and make it the new
       // value of the node that we’re deleting:
     } else {
-      nodeToDelete.value = node.value;
-      return node.rightChild;
+      nodeToDelete.val = node.val;
+      return node.right;
     }
   }
 }
@@ -124,12 +118,12 @@ void main() {
   // Example usage:
   // Creating a binary tree of integers
   var root = TreeNode(10);
-  root.leftChild = TreeNode(5);
-  root.rightChild = TreeNode(15);
-  root.leftChild!.leftChild = TreeNode(3);
-  root.leftChild!.rightChild = TreeNode(7);
-  root.rightChild!.leftChild = TreeNode(12);
-  root.rightChild!.rightChild = TreeNode(17);
+  root.left = TreeNode(5);
+  root.right = TreeNode(15);
+  root.left!.left = TreeNode(3);
+  root.left!.right = TreeNode(7);
+  root.right!.left = TreeNode(12);
+  root.right!.right = TreeNode(17);
 
   var binarySearchTree = BinarySearchTree(root);
 
@@ -152,8 +146,8 @@ void main() {
 
 void printInOrderTraversal(TreeNode? node) {
   if (node != null) {
-    printInOrderTraversal(node.leftChild);
-    print(node.value);
-    printInOrderTraversal(node.rightChild);
+    printInOrderTraversal(node.left);
+    print(node.val);
+    printInOrderTraversal(node.right);
   }
 }
