@@ -53,7 +53,6 @@ void main(List<String> args) {
 
   int k = 25;
 
-  final obj = FindDepthBinaryTree();
   final obj2 = FindHeightBinaryTree();
   print(obj2.height(root, k));
 }

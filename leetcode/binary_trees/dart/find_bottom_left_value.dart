@@ -1,4 +1,4 @@
-import 'tree_node.dart';
+import '../../../dart/binary_trees/tree_node.dart';
 
 class Solution {
   int findBottomLeftValue(TreeNode? root) {

@@ -1,6 +1,7 @@
 import 'dart:math';
 
-import 'tree_node.dart';
+import '../../../dart/binary_trees/tree_node.dart';
+
 
 /**
  * Definition for a binary tree node.
