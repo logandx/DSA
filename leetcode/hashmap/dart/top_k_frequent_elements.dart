@@ -16,6 +16,29 @@ class Solution {
   }
 }
 
+class Solution2 {
+  List<int> topKFrequent(List<int> nums, int k) {
+    final hashmap = <int, int>{};
+    for (int i = 0; i < nums.length; i++) {
+      hashmap[nums[i]] = (hashmap[nums[i]] ?? 0) + 1;
+    }
+    final result = <int>[];
+    for (int i = 0; i < k; i++) {
+      int maxCount = 0;
+      int maxCandidate = 0;
+      hashmap.entries.forEach((element) {
+        if (element.value > maxCount) {
+          maxCandidate = element.key;
+          maxCount = element.value;
+        }
+      });
+      result.add(maxCandidate);
+      hashmap.remove(maxCandidate);
+    }
+    return result;
+  }
+}
+
 void main() {
   final nums = [1, 1, 1, 2, 2, 2, 2, 3, 3];
   final k = 3;
