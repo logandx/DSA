@@ -12,3 +12,14 @@ func containsDuplicate(nums []int) bool {
 	}
 	return len(hashMap) == len(nums)
 }
+
+func containsDuplicate2(nums []int) bool {
+	hashmap := make(map[int]bool)
+	for _, i := range nums {
+		if hashmap[nums[i]] == true {
+			return true
+		}
+		hashmap[nums[i]] = true
+	}
+	return false
+}
