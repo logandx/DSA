@@ -24,7 +24,7 @@
 
 class Solution {
   List<int> productExceptSelf(List<int> nums) {
-    List<int> res = List<int>.filled(nums.length,  1);
+    List<int> res = List<int>.filled(nums.length, 1);
     int prefix = 1;
     late int i;
     for (i = 0; i < nums.length; i++) {

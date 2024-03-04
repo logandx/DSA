@@ -2,7 +2,6 @@ import 'dart:math';
 
 import '../../../dart/binary_trees/tree_node.dart';
 
-
 /**
  * Definition for a binary tree node.
  * class TreeNode {

@@ -6,7 +6,8 @@ void findDirectories(String path) {
     directory.listSync().forEach((entity) {
       if (entity is Directory) {
         print(entity.path);
-        findDirectories(entity.path); // Recursively call findDirectories for subdirectories
+        findDirectories(
+            entity.path); // Recursively call findDirectories for subdirectories
       }
     });
   }

@@ -27,6 +27,7 @@ List<int> everyOther(List<int> arr) {
   }
   return newArr;
 }
+
 /// N/2 insertions + N/2 lookups = N => O(N)
 List<int> everyOther2(List<int> arr) {
   final newArr = <int>[];

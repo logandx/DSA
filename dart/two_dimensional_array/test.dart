@@ -11,7 +11,7 @@ SearchResult searchElementIn2D(List<List<dynamic>> array2D, dynamic target) {
     print("Row $i: ${array2D[i]}");
 
     for (int j = 0; j < array2D[i].length; j++) {
-          print("Nested Loop $j: ${array2D[i][j]}");
+      print("Nested Loop $j: ${array2D[i][j]}");
 
       steps++; // Increment step for each element checked
       if (array2D[i][j] == target) {

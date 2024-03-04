@@ -70,8 +70,7 @@ class Solution2 {
     for (final element in s.split('')) {
       if (element == "*") {
         list.removeAt(list.length - 1);
-      }
-      else {
+      } else {
         list.add(element);
       }
     }

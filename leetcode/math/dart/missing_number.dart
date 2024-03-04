@@ -22,7 +22,6 @@ class Solution {
 }
 
 class Solution2 {
-
   /// O(1) Space --- O(N) Time with reduce function
   int missingNumber(List<int> nums) {
     var n = nums.length;

@@ -1,6 +1,6 @@
 class Solution {
   /// n equals to the total edges: e.g: n = 4 => edges = 1, 2, 3, 4
-  /// k equals to stops required: k = 1 => the dst must be 
+  /// k equals to stops required: k = 1 => the dst must be
 
   int findCheapestPrice(
     int n,
