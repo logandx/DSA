@@ -37,7 +37,16 @@ class Solution2 {
   }
 }
 
-///  Solution 3 => Using List<int>.filled(26,0);
+class Solution3 {
+  List<List<String>> groupAnagrams(List<String> strs) {
+    final hashmap = <String, List<String>>{};
+    for (var element in strs) {
+      String key = String.fromCharCodes(element.runes.toList()..sort());
+      hashmap[key] == [...hashmap[key] ?? [], element];
+    }
+    return hashmap.values.toList();
+  }
+}
 
 void main() {
   final strs = <String>[

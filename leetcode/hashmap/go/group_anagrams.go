@@ -7,9 +7,11 @@ import (
 )
 
 /// Note: do not return sorted/re-arranged strs
-
+// Utility functions to get the values of HashMap with specific type,
+// the specific type is String here
 func getMapValues(m map[string][]string) [][]string {
 	values := make([][]string, 0, len(m))
+	// For the map, the for loop with i1, and i2 indicates for the key, and value
 	for _, v := range m {
 		values = append(values, v)
 	}
@@ -32,7 +34,7 @@ func GroupAnagrams(strs []string) [][]string {
 
 type EngAlphaBet [26]byte
 
-func getCharOccurrenceCount(str string) (char EngAlphaBet) {
+func StringCounter(str string) (char EngAlphaBet) {
 	for i := range str {
 		char[str[i]-'a']++
 	}
@@ -41,7 +43,7 @@ func getCharOccurrenceCount(str string) (char EngAlphaBet) {
 func GroupAnagrams2(strs []string) [][]string {
 	hashMap := make(map[EngAlphaBet][]string)
 	for _, v := range strs {
-		key := getCharOccurrenceCount(v)
+		key := StringCounter(v)
 		hashMap[key] = append(hashMap[key], v)
 	}
 	fmt.Println(hashMap)
