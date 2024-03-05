@@ -3,19 +3,24 @@ class Solution {
     // Create buckets
     final int numBuckets = nums.length;
     final List<List<double>> buckets = List.generate(numBuckets, (_) => []);
+    print(buckets);
 
     // Distribute elements into buckets
-    for (var num in nums) {
-      int bucketIndex = (num * numBuckets).toInt();
+    for (var element in nums) {
+      int bucketIndex = (element * numBuckets).toInt();
       if (bucketIndex == numBuckets) {
         bucketIndex--;
       }
-      buckets[bucketIndex].add(num);
+      buckets[bucketIndex].add(element);
+      print('buckets: $buckets');
     }
 
     // Sort individual buckets
     for (var bucket in buckets) {
+      print('each bucket: $bucket');
       bucket.sort();
+      print('sorted: $bucket');
+ 
     }
 
     // Concatenate sorted buckets

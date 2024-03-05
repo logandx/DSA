@@ -2,15 +2,6 @@ package hashmap
 
 import "fmt"
 
-func getMapValue(m map[int]int) []int {
-	values := make([]int, 0, len(m))
-	// For the map, the for loop with i1, and i2 indicates for the key, and value
-	for _, v := range m {
-		values = append(values, v)
-	}
-	return values
-}
-
 func topKFrequent(nums []int, k int) []int {
 	result := make([]int, k)
 	hashmap := make(map[int]int)
