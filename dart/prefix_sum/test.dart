@@ -11,6 +11,13 @@ postfix:
 The result is a multiply without the symbol in own position (the left value from
  prefix and the right one from postfix):
 |    b*c*d  | a*c*d | a*b*d |   a*b*c   |
+
+prefix:
+
+| 1 | a | a * b | a * b * c |
+
+postfix:
+|b * c * d |  c * d | d | 1 |
  */
 
 class PrefixSum {
