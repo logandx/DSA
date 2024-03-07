@@ -19,7 +19,8 @@ class BinarySearch {
 }
 
 void main(List<String> args) {
-  final arr = [1, 3, 5, 7, 9, 11, 13];
+  /////////////0  1  2  3  4  5   6    7
+  final arr = [1, 3, 5, 7, 9, 11, 13, 15];
   final obj = BinarySearch();
-  print(obj.binarySearch(arr, 1));
+  print(obj.binarySearch(arr, 9));
 }
