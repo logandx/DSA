@@ -55,10 +55,23 @@ class BinarySearchTree {
   /// the successor node. The successor node is the child node whose value is
   /// the least of all values that are greater than the deleted node.
   ///
+  ///                 50
+  ///              /      \
+  ///            25         75
+  ///           / \         / \
+  ///          10  33      (56)  89
+  ///         / \  / \     / \  / \
+  ///        4  11 30 40  52 61 82 95
+  /// 
+  /// That was a tricky sentence. In other words, the successor node is the next
+  /// number up from the deleted value. In this case, the next number up among 
+  /// the descendants of 56 is 61. So we replace the 56 with the 61.
+  ///
   /// If the successor node has a right child, after plugging the successor
   /// into the spot of the deleted node, take the right child of the successor
   /// node and turn it into the left child of the parent of the successor node.
 
+ 
   TreeNode? delete(int valueToDelete, TreeNode? node) {
     // Base case: When we're hit the bottom of the tree, and the parent node has
     // no children.
