@@ -37,8 +37,43 @@ class Solution {
   }
 }
 
+class Solution2 {
+  List<List<int>> threeSum(List<int> nums) {
+    nums.sort(); // Sort the array
+    List<List<int>> result = [];
+
+    for (int i = 0; i < nums.length; i++) {
+      // Avoid duplicates
+      if (i > 0 && nums[i] == nums[i - 1]) {
+        continue;
+      }
+      int left = i + 1, right = nums.length - 1;
+      while (left < right) {
+        int total = nums[i] + nums[left] + nums[right];
+        if (total == 0) {
+          result.add([nums[i], nums[left], nums[right]]);
+          // Avoid duplicates
+          while (left < right && nums[left] == nums[left + 1]) {
+            left++;
+          }
+          while (left < right && nums[right] == nums[right - 1]) {
+            right--;
+          }
+          left++;
+          right--;
+        } else if (total < 0) {
+          left++;
+        } else {
+          right--;
+        }
+      }
+    }
+    return result;
+  }
+}
+
 void main(List<String> args) {
-  final nums = [-1, 0, 1, 2, -1, 4];
-  final object = Solution();
+  final nums = [-1, 0, 1, 2, -1, -4];
+  final object = Solution2();
   print(object.threeSum(nums));
 }
