@@ -27,6 +27,23 @@ class Solution2 {
   }
 }
 
+class Solution3 {
+  int removeDuplicate(List<int> nums) {
+    if (nums.length < 2) {
+      return 1;
+    }
+    int left = 0;
+    for (var i = 1; i < nums.length; i++) {
+      if (nums[left] != nums[i]) {
+        nums[left + 1] = nums[i];
+        left++;
+      }
+    }
+    left++;
+    return left;
+  }
+}
+
 void main(List<String> args) {
   final nums = [
     0,
